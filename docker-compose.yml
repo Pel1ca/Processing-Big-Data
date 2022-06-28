@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  scrapservice:
+    build: ./pytube
+    image: scrap_videos:latest
+    container_name: scrapVideos
+    volumes:
+      - ./datasets/RawVideos:/scrap/videos
+    restart: always
+  jupyterpbdjpc:
+    image: jpcosteira/datascience:h2o
+    container_name: jpcbigdata
+    ports:
+      - 4003:8888
+    volumes:
+      - ./datasets:/home/jovyan/datasets
+      - ./dataAnalysis:/home/jovyan/dataAnalysis
+    restart: always
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_ALLOW_INSECURE_WRITES=1
+    links:
+      - "openpose1:op"
+  openpose1:
+    image : sipgisr/open-pose-grpc:kp-estimation-latest
+    container_name: openpose12
+    ports:
+      - 40001:8061
+    restart: unless-stopped
