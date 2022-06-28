@@ -16,11 +16,11 @@ Classify frames of those videos
 
 ## The code
 
-videoToSkel.py => gets skeleton data of a video
-videoToFeatures.py => gets features data of a video
-scrapsVideos.py => web scrapes the internet for more videos, runs in the background
-classifyVideo.py => gets the classification of a video
-showVideo.py => shows a video with the classification of every frame (needs CV2)
+* videoToSkel.py => gets skeleton data of a video
+* videoToFeatures.py => gets features data of a video
+* scrapsVideos.py => web scrapes the internet for more videos, runs in the background
+* classifyVideo.py => gets the classification of a video
+* showVideo.py => shows a video with the classification of every frame (needs CV2)
 
 ### DEMO
 
